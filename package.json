@@ -1,0 +1,23 @@
+{
+  "name": "restaurantpage",
+  "version": "1.0.0",
+  "description": "a page for a restaurant",
+  "main": "index.js",
+  "scripts": {
+    "test": "testme"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/JustDom223/restaurantPage.git"
+  },
+  "author": "Dominic N",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JustDom223/restaurantPage/issues"
+  },
+  "homepage": "https://github.com/JustDom223/restaurantPage#readme",
+  "devDependencies": {
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}

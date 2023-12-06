@@ -1,0 +1,8 @@
+# Ignore Node.js modules
+node_modules/
+
+# Other common ignores
+.DS_Store        # Ignore Mac system files
+.env             # Ignore environment files
+*.log            # Ignore log files
+dist/            # Ignore build directory
