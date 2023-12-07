@@ -1,0 +1,30 @@
+* {
+    border: red 1px solid;
+}
+body{
+    height: 100vh;
+}
+
+#content{
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 6fr 1fr;
+    /* background-color: aqua; */
+}
+
+main{
+    display: grid;
+    grid-row: 2/3;
+    justify-items: center;
+
+}
+
+main p{
+    grid-row: 2/3;
+}
+
+main img{
+    height: 400px;
+    grid-row: 1/2;
+}
+
