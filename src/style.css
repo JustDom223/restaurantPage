@@ -9,7 +9,18 @@ body{
     height: 100%;
     display: grid;
     grid-template-rows: 1fr 6fr 1fr;
-    /* background-color: aqua; */
+}
+
+header{
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+}
+
+header ul{
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+
 }
 
 main{
