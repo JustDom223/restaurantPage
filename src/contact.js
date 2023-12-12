@@ -54,7 +54,7 @@ export function initializeContactPage(){
     vonWithPieElement.src = vonWithPieImg;
     introductionElement.textContent = `Von can be contacted on: Shayayamayneyou aree getting a number`;
 
-
+    console.log('we got here')
     // Appending Header
     headerElement.appendChild(headingElement);
     headerElement.appendChild(tabList);
@@ -68,6 +68,7 @@ export function initializeContactPage(){
         main: mainElement,
         footer: footerElement
     };
+    
 };
 
 
