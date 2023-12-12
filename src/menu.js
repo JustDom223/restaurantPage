@@ -16,6 +16,9 @@ export function initializeMenuPage(img, pieCont){
     const pieCard = document.createElement('div')
     const pieImgElement = new Image()
     const pieDesc = document.createElement('p')
+    // Adding a class to the card
+    pieCard.classList.add('pieCard')
+    pieImgElement.classList.add('pieImg')
     // adding content to elements
     pieImgElement.src = img;
     pieDesc.textContent = pieCont

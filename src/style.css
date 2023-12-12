@@ -59,3 +59,12 @@ main img{
     grid-row: 1/2;
 }
 
+.pieCard{
+    display: flex;
+    flex-direction: column;
+}
+
+.pieImg{
+    height: 200px;
+    width: 200px;
+}

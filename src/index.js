@@ -4,6 +4,8 @@ import pieSVG from './img/pieTab.svg'
 import {initializeHomePage} from './home.js'
 import {initializeContactPage} from './contact.js'
 import {initializeMenuPage} from'./menu.js'
+import { createHeader } from './header.js';
+import { createFooter } from './footer.js';
 
 document.addEventListener('DOMContentLoaded', function() {
   // DOM is fully parsed and ready for manipulation
@@ -12,10 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Add the image to our existing div.
   let pageElements = initializeHomePage();
-  contentElement.appendChild(pageElements.header);
-  contentElement.appendChild(pageElements.main);
-  contentElement.appendChild(pageElements.footer);
+  contentElement.appendChild(createHeader());
+  contentElement.appendChild(initializeHomePage());
+  contentElement.appendChild(createFooter());
+
+  
 });
-
-
-// checkOneTwo()
