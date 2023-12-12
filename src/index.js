@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const contentElement = document.querySelector('#content')
   
   // Add the image to our existing div.
-  let pageElements = initializeHomePage();
+
   contentElement.appendChild(createHeader());
   contentElement.appendChild(initializeHomePage());
   contentElement.appendChild(createFooter());

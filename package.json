@@ -4,7 +4,8 @@
   "description": "a page for a restaurant",
   "main": "index.js",
   "scripts": {
-    "test": "testme"
+    "test": "testme",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
