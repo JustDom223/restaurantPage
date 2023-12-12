@@ -31,24 +31,47 @@ export function initializeHomePage(){
     menuTab.classList.add('tab');
     contactTab.classList.add('tab');
     
-    homeTab.addEventListener('click', (event) => {        
-        let clickedElementId = event.currentTarget.id;
+    tabList.addEventListener('click', (event) => {
+        // Check if the clicked element is a tab
+        const clickedTab = event.target.closest('li')
+        const clickedElementId = clickedTab.id;
         console.log(clickedElementId)
-        populateMain(clickedElementId)
-    })
+        console.log('here here')
+        if (clickedTab.classList.contains('tab')) {
+            // let clickedElementId = event.currentTarget.id;
+            let mainContent = populateMain(clickedElementId)
+            mainElement.appendChild(mainContent.img);
+            mainElement.appendChild(mainContent.content);
+            console.log('here')
+        }
+    });
+    
+    function populateMain (clickedElementId){
+        // Clear main
+        mainElement.innerHTML = '';
+        // Children for main
+        const vonWithPieElement = new Image();
+        const mainTextElement = document.createElement('p');
 
-    menuTab.addEventListener('click', (event) =>  {       
-    let clickedElementId = event.currentTarget.id;
-    console.log(clickedElementId)
-    populateMain(clickedElementId)
-    })
+        // Adding content to main elements
+        vonWithPieElement.src = vonWithPieImg;
 
-    contactTab.addEventListener('click', (event) => {
-        let clickedElementId = event.currentTarget.id;
-        console.log(clickedElementId)
-        populateMain(clickedElementId)
-    })
-   
+        if(clickedElementId === 'homeTab'){
+            mainTextElement.textContent = `Von's famous pies have taken the Netherlands by storm, becoming a sensation in a country more known for its practical cuisine than its culinary adventures. These pies are a stark contrast to the typical Dutch fare, which, let's face it, often prioritizes function over flair. With the arrival of Von's Pies, the Dutch have been pleasantly ambushed by a whirlwind of flavors and food with actual texture, making many wonder how they ever settled for frikandel and herring.
+            Each pie from Von's Pies is a culinary rebellion against the ordinary. Where traditional Dutch meals are comfortably predictable, Von's Pies are daringly unpredictable. Their crusts are not just flaky; they're an audacious escape from the monotony of deepfried noodle blocks and potato. The fillings? A far cry from the usual stamppot, they are a blend of the finest ingredients that could make even the most loyal Dutch foodie question their allegiance to their national staples. 
+            The variety at Von's Pies is another delightful shock to the Dutch palate. From pies bursting with exotic meats to those brimming with fruits sweeter than a Dutch summer, Von's Pies treats each creation as a piece of edible art. These pies have become the talk of the town, outshining even the most traditional Dutch snacks. It's no longer just about filling the belly; it's about feeding the soul with something unexpectedly extraordinary.
+            `;
+        }else if(clickedElementId === 'menuTab'){
+            mainTextElement.textContent = 'menu'
+        }else if(clickedElementId === 'contactTab'){
+            mainTextElement.textContent = 'contact'
+        }
+        return {
+            img: vonWithPieElement,
+            content: mainTextElement
+        }
+    }
+    
 
     // Children for tabs
     function createTabImg(){
@@ -81,28 +104,6 @@ export function initializeHomePage(){
     menuTab.appendChild(menuTabHeading);
     contactTab.appendChild(contactTabHeading);
 
-    function populateMain (clickedElementId){
-        // Children for main
-        const vonWithPieElement = new Image();
-        const mainTextElement = document.createElement('p');
-
-        // Adding content to main elements
-        vonWithPieElement.src = vonWithPieImg;
-        if(clickedElementId === 'homeTab'){
-            mainElement.textContent = `Von's famous pies have taken the Netherlands by storm, becoming a sensation in a country more known for its practical cuisine than its culinary adventures. These pies are a stark contrast to the typical Dutch fare, which, let's face it, often prioritizes function over flair. With the arrival of Von's Pies, the Dutch have been pleasantly ambushed by a whirlwind of flavors and food with actual texture, making many wonder how they ever settled for frikandel and herring.
-            Each pie from Von's Pies is a culinary rebellion against the ordinary. Where traditional Dutch meals are comfortably predictable, Von's Pies are daringly unpredictable. Their crusts are not just flaky; they're an audacious escape from the monotony of deepfried noodle blocks and potato. The fillings? A far cry from the usual stamppot, they are a blend of the finest ingredients that could make even the most loyal Dutch foodie question their allegiance to their national staples. 
-            The variety at Von's Pies is another delightful shock to the Dutch palate. From pies bursting with exotic meats to those brimming with fruits sweeter than a Dutch summer, Von's Pies treats each creation as a piece of edible art. These pies have become the talk of the town, outshining even the most traditional Dutch snacks. It's no longer just about filling the belly; it's about feeding the soul with something unexpectedly extraordinary.
-            `;
-        }else if(clickedElementId === 'menuTab'){
-            mainElement.textContent = 'menu'
-        }else if(clickedElementId === 'contactTab'){
-            mainElement.textContent = 'contact'
-        }
-        return {
-            img: vonWithPieElement,
-            intro: mainTextElement
-        }
-    }
     
 
 
@@ -111,9 +112,9 @@ export function initializeHomePage(){
     headerElement.appendChild(tabList);
     
     // Appending Main
-    let mainElements = populateMain()
-    mainElement.appendChild(mainElements.img);
-    mainElement.appendChild(mainElements.intro);
+    let mainContent = populateMain()
+    mainElement.appendChild(mainContent.img);
+    mainElement.appendChild(mainContent.content);
 
     return {
         header: headerElement,
