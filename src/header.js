@@ -1,7 +1,32 @@
 import pieSVG from './img/pieTab.svg'
 import {initializeHomePage} from './home.js'
 import { initializeMenuPage } from './menu.js';
-const mainElement = document.querySelector('#main')
+import { initializeContactPage } from './contact.js';
+
+export function populateMain(clickedElementId){
+    const mainElement = document.createElement('main')
+    // Clear main
+    mainElement.innerHTML = '';
+    console.log('we were meant to clear')
+    
+    // Adding content to main elements
+    
+    if(clickedElementId === 'homeTab'){
+        const newElements = initializeHomePage()
+        mainElement.appendChild(newElements.frontImg)
+        mainElement.appendChild(newElements.content)
+        console.log(mainElement)
+    }else if(clickedElementId === 'menuTab'){
+        mainElement.appendChild(initializeMenuPage(chickenPie, content))
+        
+    }else if(clickedElementId === 'contactTab'){
+        console.log('we made it')
+        const newElements = initializeContactPage()
+        console.log(newElements)
+        mainElement.appendChild(newElements)
+    }
+    return mainElement
+}
 
 export function createHeader() {
     const headerElement = document.createElement('header');
@@ -28,39 +53,23 @@ export function createHeader() {
     contactTab.classList.add('tab');
     
     tabList.addEventListener('click', (event) => {
-        // Check if the clicked element is a tab
-        const clickedTab = event.target.closest('li')
-        const clickedElementId = clickedTab.id;
+        const contentElement = document.querySelector('#content')
+        const clickedTab = event.target.closest('li');
         if (clickedTab.classList.contains('tab')) {
-            console.log(clickedTab)
-            let clickedElementId = event.currentTarget.id;
-            let mainContent = populateMain()
-            mainElement.appendChild(mainContent.img);
-            mainElement.appendChild(mainContent.content);
+            const clickedElementId = clickedTab.id;
+            console.log(clickedElementId);
+    
+            const newMainContent = populateMain(clickedElementId);
+    
+            // Replace the existing main content with the new one
+            const existingMainElement = document.querySelector('main');
+            if (existingMainElement) {
+                contentElement.replaceChild(newMainContent, existingMainElement);
+            }
         }
     });
     
-function populateMain(clickedElementId){
-            // Clear main
-            mainElement.innerHTML = '';
-            // Children for main
-            const mainTextElement = document.createElement('p');
-            
-            // Adding content to main elements
-            
-            if(clickedElementId === 'homeTab'){
-                mainElement.appendChild(initializeHomePage())
-            }else if(clickedElementId === 'menuTab'){
-                mainElement.appendChild(initializeMenuPage(chickenPie, content))
-                
-            }else if(clickedElementId === 'contactTab'){
-                mainTextElement.textContent = 'contact'
-            }
-            return {
-                img: vonWithPieElement,
-                content: mainTextElement
-            }
-        }
+    
     
     // Children for tabs
     function createTabImg(){

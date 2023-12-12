@@ -4,7 +4,7 @@ import pieSVG from './img/pieTab.svg'
 import {initializeHomePage} from './home.js'
 import {initializeContactPage} from './contact.js'
 import {initializeMenuPage} from'./menu.js'
-import { createHeader } from './header.js';
+import { createHeader, populateMain } from './header.js';
 import { createFooter } from './footer.js';
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -15,8 +15,12 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add the image to our existing div.
 
   contentElement.appendChild(createHeader());
-  contentElement.appendChild(initializeHomePage());
+  contentElement.appendChild(populateMain('homeTab'));
   contentElement.appendChild(createFooter());
 
   
-});
+}
+
+
+
+);
