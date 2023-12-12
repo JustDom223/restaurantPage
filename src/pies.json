@@ -1,0 +1,13 @@
+[
+    {
+        "name": "Chicken Pie",
+        "description": "A delicious apple pie made with fresh apples.",
+        "image": "img/chickenPie.png"
+    },
+    {
+        "name": "Steak Pie",
+        "description": "A sweet cherry pie with a flaky crust.",
+        "image": "img/cherry_pie.jpg"
+    }
+    // Add more pies as needed
+]

@@ -1,6 +1,7 @@
-import vonWithPieImg from './vonWithPie1.png';
-import pieSVG from './pieTab.svg'
+import vonWithPieImg from './img/vonWithPie1.png';
+import pieSVG from './img/pieTab.svg'
 import { contactPage, initializeContactPage } from './contact';
+import { initializeMenuPage } from './menu';
   
 export function initializeHomePage(){
 
@@ -35,17 +36,18 @@ export function initializeHomePage(){
         // Check if the clicked element is a tab
         const clickedTab = event.target.closest('li')
         const clickedElementId = clickedTab.id;
-        console.log(clickedElementId)
-        console.log('here here')
         if (clickedTab.classList.contains('tab')) {
             // let clickedElementId = event.currentTarget.id;
             let mainContent = populateMain(clickedElementId)
             mainElement.appendChild(mainContent.img);
             mainElement.appendChild(mainContent.content);
-            console.log('here')
         }
     });
     
+const image = './img/chickenPie.png'
+const content = "A chicken pie is a comforting dish featuring tender chicken pieces, vegetables, and aromatic herbs in a creamy sauce, all encased in a flaky pastry crust. It's a classic comfort food loved for its rich flavors and contrasting textures."
+
+
     function populateMain (clickedElementId){
         // Clear main
         mainElement.innerHTML = '';
@@ -62,7 +64,8 @@ export function initializeHomePage(){
             The variety at Von's Pies is another delightful shock to the Dutch palate. From pies bursting with exotic meats to those brimming with fruits sweeter than a Dutch summer, Von's Pies treats each creation as a piece of edible art. These pies have become the talk of the town, outshining even the most traditional Dutch snacks. It's no longer just about filling the belly; it's about feeding the soul with something unexpectedly extraordinary.
             `;
         }else if(clickedElementId === 'menuTab'){
-            mainTextElement.textContent = 'menu'
+            initializeMenuPage(image, content)
+            
         }else if(clickedElementId === 'contactTab'){
             mainTextElement.textContent = 'contact'
         }

@@ -1,6 +1,6 @@
 import './style.css'
-import vonWithPieImg from './vonWithPie1.png';
-import pieSVG from './pieTab.svg'
+import vonWithPieImg from './img/vonWithPie1.png';
+import pieSVG from './img/pieTab.svg'
 import {initializeHomePage} from './home.js'
 import {initializeContactPage} from './contact.js'
 import {initializeMenuPage} from'./menu.js'
