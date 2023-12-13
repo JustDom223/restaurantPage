@@ -14,13 +14,34 @@ const importPieImages = (imageContent) => {
     return images;
 }
 
-const allPies = importPieImages(pieImages)
+export const allPies = importPieImages(pieImages)
 console.log(allPies)
 
-const pies = {
-    "name": "Creamy Chicken Pie",
-    "description": "Delish creamy chicken pie with perfect flaky puff pastry.",
+const pies = [
+    {
+    "name": "Creamy Chicken ",
+    "description": " A classic Australian chicken pie with a puff pastry top, showcasing a golden, flaky crust. Inside, a creamy filling of diced chicken, herbs, and mushrooms is encased, perfectly blending flavors and textures.",
     "image": "src/img/pieImgs/chickenPie.png"
+    },{
+    "name": "Chunky Steak & Pea",
+    "description": " This pie features a rich, savory steak filling, made with tender chunks of steak, gravy, and diced vegetables. A slice is cut out, revealing the hearty inside, all encased in a golden puff pastry crust.",
+    "image": "src/img/pieImgs/steakAndPeaPie.png"   
+    },{
+    "name": "Tuna Mornay",
+    "description": "A delightful twist on the traditional tuna mornay, transformed into a pie with a flaky puff pastry crust. A slice is removed to display the creamy tuna, cheese, and vegetable filling, offering a glimpse of this comforting dish.",
+    "image": "src/img/pieImgs/tunaMornay.png"   
+    },{
+    "name": "Shepards Pie",
+    "description": "A traditional Shepherd's pie presented in a round baking dish. It has a savory minced lamb filling with onions, carrots, and peas, topped with a smooth layer of golden-brown mashed potatoes, lightly crisped, and garnished with fresh herbs.",
+    "image": "src/img/pieImgs/shepardPie.png"   
+    },
+]
+
+function createPieCards(pies){
+    pies.forEach(pie => {
+        let newPie = initializeMenuPage(chickenPie, pie.name, pie.description)
+        return newPie
+    })
 }
 
 
@@ -47,11 +68,10 @@ export function populateMain(clickedElementId){
         mainElement.appendChild(newElements.frontImg)
         mainElement.appendChild(newElements.content)
     }else if(clickedElementId === 'menuTab'){
-        mainElement.appendChild(initializeMenuPage(chickenPie, pies.name, pies.description))
+        mainElement.appendChild(createPieCards(pies))
         
     }else if(clickedElementId === 'contactTab'){
         const newElements = initializeContactPage()
-        console.log(newElements)
         mainElement.appendChild(newElements)
     }
     return mainElement
