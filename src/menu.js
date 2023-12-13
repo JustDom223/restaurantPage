@@ -1,10 +1,11 @@
-// fetch('./pies.json')
-//     .then(response => response.json())
-//     .then(pies => {
-//         pies.forEach(pie)
-//     })
-const image = './img/chickenPie.png'
-const content = "A chicken pie is a comforting dish featuring tender chicken pieces, vegetables, and aromatic herbs in a creamy sauce, all encased in a flaky pastry crust. It's a classic comfort food loved for its rich flavors and contrasting textures."
+fetch('./pies.json')
+    .then(response => response.json())
+    .then(pies => {
+        pies.forEach(pie => {
+            createPieCard(pie);
+        });
+    })
+    .catch(error => console.error('Error loading pie data:', error));
 
 
 export function initializeMenuPage(img, pieCont){
