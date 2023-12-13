@@ -1,32 +1,7 @@
 import pieSVG from './img/pieTab.svg'
-import {initializeHomePage} from './home.js'
-import { initializeMenuPage } from './menu.js';
-import { initializeContactPage } from './contact.js';
-
-export function populateMain(clickedElementId){
-    const mainElement = document.createElement('main')
-    // Clear main
-    mainElement.innerHTML = '';
-    console.log('we were meant to clear')
-    
-    // Adding content to main elements
-    
-    if(clickedElementId === 'homeTab'){
-        const newElements = initializeHomePage()
-        mainElement.appendChild(newElements.frontImg)
-        mainElement.appendChild(newElements.content)
-        console.log(mainElement)
-    }else if(clickedElementId === 'menuTab'){
-        mainElement.appendChild(initializeMenuPage(chickenPie, content))
-        
-    }else if(clickedElementId === 'contactTab'){
-        console.log('we made it')
-        const newElements = initializeContactPage()
-        console.log(newElements)
-        mainElement.appendChild(newElements)
-    }
-    return mainElement
-}
+import steamSVG from './img/steam.svg'
+import { setActiveTab } from './script.js';
+import { populateMain } from './script.js';
 
 export function createHeader() {
     const headerElement = document.createElement('header');
@@ -57,15 +32,12 @@ export function createHeader() {
         const clickedTab = event.target.closest('li');
         if (clickedTab.classList.contains('tab')) {
             const clickedElementId = clickedTab.id;
-            console.log(clickedElementId);
-    
             const newMainContent = populateMain(clickedElementId);
     
             // Replace the existing main content with the new one
             const existingMainElement = document.querySelector('main');
-            if (existingMainElement) {
-                contentElement.replaceChild(newMainContent, existingMainElement);
-            }
+            contentElement.replaceChild(newMainContent, existingMainElement);
+            setActiveTab(clickedElementId)
         }
     });
     
@@ -77,6 +49,12 @@ export function createHeader() {
         tabPieSvg.src = pieSVG;
         return tabPieSvg
         
+    }
+    function createSteamImg(){
+        const tabSteam = new Image();
+        tabSteam.src = steamSVG;
+        tabSteam.classList.add('steam')
+        return tabSteam
     }
     
     const homeTabHeading = document.createElement('h2')
@@ -94,9 +72,13 @@ export function createHeader() {
     contactTabHeading.textContent = 'Contact';
     
     
-    homeTab.appendChild(createTabImg(pieSVG));
-    menuTab.appendChild(createTabImg(pieSVG));
-    contactTab.appendChild(createTabImg(pieSVG));
+    homeTab.appendChild(createTabImg());
+    menuTab.appendChild(createTabImg());
+    contactTab.appendChild(createTabImg());
+
+    homeTab.appendChild(createSteamImg())
+    menuTab.appendChild(createSteamImg())
+    contactTab.appendChild(createSteamImg())
     
     homeTab.appendChild(homeTabHeading);
     menuTab.appendChild(menuTabHeading);

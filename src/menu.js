@@ -1,6 +1,3 @@
-import vonWithPieImg from './img/vonWithPie1.png';
-import pieSVG from './img/pieTab.svg'
-
 // fetch('./pies.json')
 //     .then(response => response.json())
 //     .then(pies => {

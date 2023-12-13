@@ -68,3 +68,16 @@ main img{
     height: 200px;
     width: 200px;
 }
+
+.steam{
+    transform: rotate(180deg);
+    height: 20px;
+    align-self: start;
+    display: none;
+    opacity: 50%;
+  
+}
+
+.active{
+    display: block;
+}
