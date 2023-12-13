@@ -1,31 +1,35 @@
-fetch('./pies.json')
-    .then(response => response.json())
-    .then(pies => {
-        pies.forEach(pie => {
-            createPieCard(pie);
-        });
-    })
-    .catch(error => console.error('Error loading pie data:', error));
+
+const pies = {
+    "name": "Steak Pie",
+    "description": "Delish creamy chicken pie with perfect flaky puff pastry.",
+    "image": "img/pieImgs/chickenPie.png"
+}
 
 
-export function initializeMenuPage(img, pieCont){
-
+export function initializeMenuPage(pieImg, pieName, pieCont){
     // create elements for Menupage
-    const pieCard = document.createElement('div')
+    
+    const pieCardElement = document.createElement('div')
+    const pieNameElement = document.createElement('h2')
     const pieImgElement = new Image()
-    const pieDesc = document.createElement('p')
+    const pieDescElement = document.createElement('p')
+
     // Adding a class to the card
-    pieCard.classList.add('pieCard')
+    pieCardElement.classList.add('pieCard')
+    pieNameElement.classList.add('pieName')
     pieImgElement.classList.add('pieImg')
     // adding content to elements
-    pieImgElement.src = img;
-    pieDesc.textContent = pieCont
+    pieImgElement.src = pieImg;
+    pieNameElement.innerHTML = pieName
+    pieDescElement.innerHTML = pieCont;
 
-    pieCard.appendChild(pieImgElement)
-    pieCard.appendChild(pieDesc)
+    pieCardElement.appendChild(pieImgElement)
+    pieCardElement.appendChild(pieNameElement)
+    pieCardElement.appendChild(pieDescElement)
 
-    return pieCard
+    return pieCardElement
 
 };
+
 
 

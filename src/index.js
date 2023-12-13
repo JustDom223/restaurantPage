@@ -3,6 +3,8 @@ import { createHeader} from './header.js';
 import { createFooter } from './footer.js';
 import { populateMain } from './script.js';
 
+console.log('Test')
+
 document.addEventListener('DOMContentLoaded', function() {
   // DOM is fully parsed and ready for manipulation
   
